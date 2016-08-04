@@ -103,7 +103,7 @@ if(TARGET === 'start' || !TARGET) {
 	});
 }
 
-if(TARGET === 'build' || TARGET === 'stats' || TARGET === 'postinstall') {
+if(TARGET === 'build' || TARGET === 'stats') {
 	module.exports = merge(common, {
 
 		//Define vender entry point needed for splitting

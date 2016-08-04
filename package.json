@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack -p",
+    "build": "webpack -p",
     "start": "webpack-dev-server",
     "prod": "NODE_ENV=production node server.js",
     "stats": "webpack --profile --json > stats.json",
