@@ -8,9 +8,14 @@ class VideoItem extends Component {
 		console.log(this.props);
 	}
 	render() {
+		if(this.props.video == null) {
+			return (
+				<div>Loading...</div>
+			)
+		}
 		const video = this.props.video[0];
 		const videoId = video.id.videoId;
-	const url = 'https://www.youtube.com/embed/' + videoId;
+		const url = 'https://www.youtube.com/embed/' + videoId;
 		return (
 			<div className="video-detail">
 				<div className="embed-responsive embed-responsive-16by9">

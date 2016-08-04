@@ -11,16 +11,16 @@ class MovieDetail extends Component {
 	}
 
 	render() {
-		let data = this.props.data;
-		let year = data.release_date.substring(0,4);
-		let background= {
-			backgroundImage: "url(http://image.tmdb.org/t/p/w1280" + data.poster_path + ")"
-		} 
-		if (!this.props.data) {
+		if (this.props.data == null) {
 			return (
 				<div>Loading...</div>
 			)
 		}
+			let data = this.props.data;
+			let year = data.release_date.substring(0,4);
+			let background= {
+				backgroundImage: "url(http://image.tmdb.org/t/p/w1280" + data.poster_path + ")"
+			} 
 		return (
 			<div className="content-detail">
 				<div className="row">
@@ -57,7 +57,7 @@ class MovieDetail extends Component {
 				</div>
 				<div className="content-detail-bottom">
 				<VideoItem
-					title={data.title + "official trailer"} />
+					title={data.title + " official trailer"} />
 				</div>
 
 			</div>
@@ -66,7 +66,6 @@ class MovieDetail extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('this is the state of the mapstate', state.movies.detail);
-	return { data: state.movies.detail };
+	return { data: state.detail.data };
 }
 export default connect(mapStateToProps, actions)(MovieDetail);

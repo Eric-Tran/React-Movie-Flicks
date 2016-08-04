@@ -54,7 +54,7 @@ process.env.BABEL_ENV = TARGET;
 	},
 	plugins: [
    	new HtmlWebpackPlugin({
-   	title: 'React Project Template',
+   	title: 'Movie Flicks',
    	template: 'index.html'
    	})
 	]
