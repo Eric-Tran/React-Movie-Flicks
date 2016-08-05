@@ -8,7 +8,7 @@ html {
 		height: auto;
 		font-family: $font-stack;
 		color: $fontColor;
-		background-image: url("images/tan.jpg");  
+		background-color: #081c24;  
 		h1, h2, h3 {
 			text-transform: capitalize;
 		}
@@ -105,7 +105,7 @@ nav {
 
 .content-list {
 	padding: 20px;
-	margin-top: 190px;
+	margin-top: 230px;
 	background-image: url("images/tan.jpg");
 	ul {
 		list-style: none;
@@ -133,15 +133,23 @@ nav {
 
 .content-detail {
 	padding: 40px;
-	margin-top: 240px;
-	background-color: #081c24;
+	margin-top: 230px;
+	background-image: url("images/tan.jpg");
+		h1 {
+			color: black;
+		}
+		h2 {
+			color: black;
+		}
+		p {
+			color: black;
+		}
 		hr {
 			margin: 20px 0px 20px 0px;
 			border: .5px solid #ccc;
 		}
 		span {
 			font-size: 30px;
-			color: #aaa;
 		}
 	.dv-star-rating {
 		font-size: 30px;
@@ -151,10 +159,11 @@ nav {
 		p {
 			font-weight: 200;
 			margin: 3px;
+			color: black;
 			span {
 				font-size: 1rem;
 				font-weight: 200;
-				color: white;
+				color: black;
 			}
 		}
 	}

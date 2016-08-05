@@ -113,6 +113,9 @@ if(TARGET === 'build' || TARGET === 'stats') {
 			// '.filter(...)'.
 			vendor: Object.keys(pkg.dependencies)
 		},
+		externals: {
+			request: "Request"
+		},
 		output: {
 			path: PATHS.build,
 			filename: '[name].[chunkhash].js',
