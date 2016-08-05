@@ -9,7 +9,7 @@ import {
 } from './types';
 
 //Movie Data API
-const MOVIEAPI_ROOT_URL = 'http://api.themoviedb.org/3/movie';
+const MOVIEAPI_ROOT_URL = 'https://api.themoviedb.org/3/movie';
 const MOVIE_API_KEY = '6cb8d1dbda0f4077648f28b2c46a20cd';
 
 //Youtube API
