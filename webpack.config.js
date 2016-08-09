@@ -41,7 +41,7 @@ process.env.BABEL_ENV = TARGET;
   		loaders: [
 		   {
 		   	exclude: /node_modules/,
-		   	test: /\.jsx?$/,
+		   	test: /\.js?$/,
 		      loaders: ['babel?cacheDirectory'],
 		      include: PATHS.app
 		   },

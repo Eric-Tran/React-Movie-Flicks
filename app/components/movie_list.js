@@ -31,7 +31,6 @@ class MovieList extends Component {
 				onClick={this.showMovieDetail.bind(this, data.id)}
 				key={data.id}
 				data={data} />
-
 				)
 			})
 		}
@@ -39,6 +38,13 @@ class MovieList extends Component {
 
 
 	render() {
+		if(!this.props.movies) {
+			return (
+				<div className="content-list">
+					<h2>Loading...</h2>
+				</div>
+			)
+		}
 		return (
 			<div className="content-list">
 				<ul>

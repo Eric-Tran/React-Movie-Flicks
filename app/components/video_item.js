@@ -5,8 +5,13 @@ import * as actions from '../actions/index';
 class VideoItem extends Component {
 	componentWillMount() {
 		this.props.fetchVideo(this.props.title);
-		console.log(this.props);
 	}
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.title !== this.props.title) {
+			this.props.fetchVideo(nextProps.title);
+		}
+	}
+
 	render() {
 		if(this.props.video == null) {
 			return (
@@ -30,7 +35,7 @@ class VideoItem extends Component {
 };
 
 function mapStateToProps(state) {
-	console.log('this is the state video', state.video);
+	console.log('this is the state video', state);
 	return { video: state.video.data };
 }
 
