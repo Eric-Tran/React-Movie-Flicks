@@ -49,7 +49,8 @@ process.env.BABEL_ENV = TARGET;
 				test: /\.(jpg|png)$/,
 				loader: 'file?name=[path][name].[hash].[ext]',
 				include: PATHS.images
-			}
+			},
+			{ test: /\.json$/, loader: "json-loader" }
 		]
 	},
 	plugins: [
@@ -114,7 +115,8 @@ if(TARGET === 'build' || TARGET === 'stats') {
 			vendor: Object.keys(pkg.dependencies)
 		},
 		externals: {
-			request: "Request"
+			request: "Request",
+			express: "Express"
 		},
 		output: {
 			path: PATHS.build,
