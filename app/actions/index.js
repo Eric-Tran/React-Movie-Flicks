@@ -10,15 +10,15 @@ import {
 } from './types';
 
 //Youtube API
-const YT_API_KEY = 'AIzaSyDLI1PT8oiax7uQpacna-jYXdsMN7SX9p0';
-const YT_ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
-
-//MOVIE API METHODS
-const MOVIEAPI_ROOT_URL = 'https://api.themoviedb.org/3/movie';
+const YT_ROOT_URL = config.yt_root_url;
+const YT_API KEY = config.yt_api_key;
+//MOVIE API
+const MOVIEAPI_ROOT_URL = config.movie_root_url;
 const MOVIE_API_KEY = config.movie_api_key;
+
 export function fetchPopular() {
 	return function(dispatch) {
-		axios.get('http://localhost:5000/api/popular')
+		axios.get('https://reactmovieflicks.herokuapp.com/api/popular')
 		.then(response => {
 			console.log('this is the response', response);
 			dispatch({
