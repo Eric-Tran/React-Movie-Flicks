@@ -5,12 +5,6 @@ const request = require('request');
 const route = express.Router();
 const config = require('./config');
 
-console.log(__dirname)
-app.use(express.static(__dirname + '/build'));
-app.get('*', function (req, res, next) {
-	res.sendFile(path.resolve(__dirname, './build'))
-})
-
 //API ROUTES
 const MOVIEAPI_ROOT_URL = 'https://api.themoviedb.org/3/movie';
 const MOVIE_API_KEY = config.movie_api_key;
@@ -26,6 +20,12 @@ app.route("/api/popular").get(function(req, res) {
 	})
 })
 
+console.log(__dirname)
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'build/index.html'))
+})
 
 app.listen(process.env.PORT || 5000);
 console.log("Pizzas served on Port", 5000);
