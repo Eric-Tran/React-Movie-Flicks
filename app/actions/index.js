@@ -11,7 +11,7 @@ import {
 
 //Youtube API
 const YT_ROOT_URL = config.yt_root_url;
-const YT_API KEY = config.yt_api_key;
+const YT_API_KEY = config.yt_api_key;
 //MOVIE API
 const MOVIEAPI_ROOT_URL = config.movie_root_url;
 const MOVIE_API_KEY = config.movie_api_key;
