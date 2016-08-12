@@ -35,7 +35,6 @@ class VideoItem extends Component {
 };
 
 function mapStateToProps(state) {
-	console.log('this is the state video', state);
 	return { video: state.video.data };
 }
 

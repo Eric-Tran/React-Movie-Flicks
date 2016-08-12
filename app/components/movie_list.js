@@ -5,7 +5,7 @@ import MovieListItem from './movie_list_item';
 
 class MovieList extends Component {
 	componentWillMount() {
-		this.props.fetchPopular();
+		this.props.fetchPopularMovies();
 	}
 
 	static contextTypes = {
@@ -20,7 +20,6 @@ class MovieList extends Component {
 	}
 
 	showMovieDetail(id) {
-		console.log('this is the data', id);
 		this.context.router.push('/'+`${id}`);
 	}
 	renderMovieListItems() {

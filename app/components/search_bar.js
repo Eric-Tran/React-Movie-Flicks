@@ -5,8 +5,8 @@ import * as actions from '../actions';
 
 class SearchBar extends Component {
 
-	handleFormSubmit({search}) {
-		this.props.searchTitle({search});
+	handleFormSubmit(search) {
+		this.props.searchTitle(search.search);
 	}
 
 
