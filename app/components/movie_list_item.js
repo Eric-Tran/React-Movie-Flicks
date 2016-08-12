@@ -26,7 +26,7 @@ export default class MovieListItem extends Component {
 			style={liStyle} 
 			onMouseEnter={this.toggleHover.bind(this)} 
 			onMouseLeave={this.toggleHover.bind(this)}>
-				<img src={'http://image.tmdb.org/t/p/w185'+ this.props.data.poster_path} />
+				<img src={'https://image.tmdb.org/t/p/w185'+ this.props.data.poster_path} />
 				<StarRatingComponent
 					name={this.props.data.title}
 					starCount={5}
