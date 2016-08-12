@@ -4,7 +4,7 @@ import YTSearch from 'youtube-api-search';
 import config from '../../config';
 import { 
 	SEARCH_TITLE,
-	FETCH_POPULAR,
+	FETCH_MOVIES,
 	FETCH_MOVIE_DETAIL,
 	FETCH_YT_VIDEO
 } from './types';
@@ -16,13 +16,36 @@ const YT_API_KEY = config.yt_api_key;
 const MOVIEAPI_ROOT_URL = config.movie_root_url;
 const MOVIE_API_KEY = config.movie_api_key;
 
-export function fetchPopular() {
+export function fetchPopularMovies() {
 	return function(dispatch) {
-		axios.get('https://reactmovieflicks.herokuapp.com/api/popular')
+		axios.get('/api/popular')
 		.then(response => {
-			console.log('this is the response', response);
 			dispatch({
-				type: FETCH_POPULAR,
+				type: FETCH_MOVIES,
+				payload: response
+			})
+		})
+	}
+}
+
+export function fetchTopMovies() {
+	return function(dispatch) {
+		axios.get('/api/top')
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
+				payload: response
+			})
+		})
+	}
+}
+
+export function fetchPlayingMovies() {
+	return function(dispatch) {
+		axios.get('/api/playing')
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
 				payload: response
 			})
 		})
@@ -31,12 +54,24 @@ export function fetchPopular() {
 
 export function fetchMovieDetail(id) {
 	return function(dispatch) {
-		axios.get(`${MOVIEAPI_ROOT_URL}/${id}?api_key=${MOVIE_API_KEY}`)
+		axios.get(`/api/detail/${id}`)
 		.then(response => {
 			dispatch({
 				type: FETCH_MOVIE_DETAIL,
 				payload: response
 			})
+		})
+	}
+}
+export function searchTitle(search) {
+	return function(dispatch) {
+		axios.get(`/api/search/${search}`)
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
+				payload: response
+			})
+			dispatch(reset('movieForm'));
 		})
 	}
 }
