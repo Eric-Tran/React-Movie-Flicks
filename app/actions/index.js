@@ -16,6 +16,7 @@ const YT_API_KEY = config.yt_api_key;
 const MOVIEAPI_ROOT_URL = config.movie_root_url;
 const MOVIE_API_KEY = config.movie_api_key;
 
+//Movie API Methods
 export function fetchPopularMovies() {
 	return function(dispatch) {
 		axios.get('/api/popular')
@@ -72,6 +73,42 @@ export function searchTitle(search) {
 				payload: response
 			})
 			dispatch(reset('movieForm'));
+		})
+	}
+}
+
+export function fetchPopularTv() {
+	return function(dispatch) {
+		axios.get('/api/tv/popular')
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
+				payload: response
+			})
+		})
+	}
+}
+
+export function fetchTopTv() {
+	return function(dispatch) {
+		axios.get('/api/tv/top')
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
+				payload: response
+			})
+		})
+	}
+}
+
+export function fetchPlayingTv() {
+	return function(dispatch) {
+		axios.get('/api/tv/playing')
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIES,
+				payload: response
+			})
 		})
 	}
 }

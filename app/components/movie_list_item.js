@@ -16,6 +16,7 @@ export default class MovieListItem extends Component {
 	}
 
 	render() {
+		console.log('here is the data in movielistitem', this.props.data);
 		let liStyle;
 		if (this.state.hover) {
 			liStyle = {boxShadow: "10px 4px 12px rgba(0,0,0,1),0 2px #fff"}

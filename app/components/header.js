@@ -16,13 +16,23 @@ export default class Header extends Component {
 		this.props.fetchPlayingMovies();
 	}
 
+	popularTv() {
+		this.props.fetchPopularTv();
+	}
+	topTv() {
+		this.props.fetchTopTv();
+	}
+	playingTv() {
+		this.props.fetchPlayingTv();
+	}
+
 	render() {
 		return (
 			<div className='header'>
 				<nav className="navbar">
 					<div className='container'>
 					<div className="navbar-header">
-						<Link to="/" className="navbar-brand">Movie Time</Link>
+						<Link to="/" className="navbar-brand">Movie Flicks</Link>
 						<ul className="nav navbar-nav">
 							<li className="nav-item">
 								<Link className="nav-link nav-movie" to="/" onClick={this.popularMovies.bind(this)}>Movies</Link>
@@ -39,21 +49,21 @@ export default class Header extends Component {
 								</ul>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link nav-tv" to="/tv">TV Shows</Link>
+								<Link className="nav-link nav-tv" to="/">TV Shows</Link>
 								<ul className="tv-links">
 									<li className="nav-item">
-										<Link className="nav-link" to="/tv">Popular</Link>
+										<Link className="nav-link" to="/">Popular</Link>
 									</li>
 									<li className="nav-item">
-										<Link className="nav-link" to="/tv">Top Rated</Link>
+										<Link className="nav-link" to="/">Top Rated</Link>
 									</li>
 									<li className="nav-item">
-										<Link className="nav-link" to="/tv">On Tv</Link>
+										<Link className="nav-link" to="/">On TV</Link>
 									</li>
 								</ul>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/all">All</Link>
+								<Link className="nav-link" to="/">All</Link>
 							</li>
 						</ul>
 					</div>

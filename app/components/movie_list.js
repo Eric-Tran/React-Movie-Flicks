@@ -37,6 +37,7 @@ class MovieList extends Component {
 
 
 	render() {
+		console.log('data on render', this.props.movies);
 		if(!this.props.movies) {
 			return (
 				<div className="content-list">
@@ -56,6 +57,7 @@ class MovieList extends Component {
 }
 
 function mapStateToProps(state) {
+	console.log('mapstateprops', state.movies.data);
 	return { movies: state.movies.data };
 }
 
