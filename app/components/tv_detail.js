@@ -50,7 +50,6 @@ class TvDetail extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('tv detail data', state.detail.data)
 	return { tvData: state.detail.data };
 }
 export default connect(mapStateToProps, actions)(TvDetail);
