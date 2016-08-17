@@ -2,8 +2,8 @@ import axios from 'axios';
 import { reset } from 'redux-form';
 import YTSearch from 'youtube-api-search';
 import config from '../../config';
+import { browserHistory } from 'react-router';
 import { 
-	SEARCH_TITLE,
 	FETCH_MOVIES,
 	FETCH_MOVIE_DETAIL,
 	FETCH_YT_VIDEO
@@ -73,6 +73,7 @@ export function searchTitle(search) {
 				payload: response
 			})
 			dispatch(reset('movieForm'));
+			browserHistory.push('/')
 		})
 	}
 }
@@ -107,6 +108,17 @@ export function fetchPlayingTv() {
 		.then(response => {
 			dispatch({
 				type: FETCH_MOVIES,
+				payload: response
+			})
+		})
+	}
+}
+export function fetchTvDetail(id) {
+	return function(dispatch) {
+		axios.get(`/api/tv/detail/${id}`)
+		.then(response => {
+			dispatch({
+				type: FETCH_MOVIE_DETAIL,
 				payload: response
 			})
 		})

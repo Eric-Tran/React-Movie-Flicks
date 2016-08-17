@@ -11,16 +11,12 @@ class MovieDetail extends Component {
 	}
 
 	render() {
+		let data = this.props.data;
 		if (this.props.data == null) {
 			return (
 				<div>Loading...</div>
 			)
 		}
-			let data = this.props.data;
-			let year = data.release_date.substring(0,4);
-			let background= {
-				backgroundImage: "url(http://image.tmdb.org/t/p/w1280" + data.poster_path + ")"
-			} 
 		return (
 			<div className="content-detail">
 				<div className="row">
@@ -28,7 +24,7 @@ class MovieDetail extends Component {
 						<img src={"http://image.tmdb.org/t/p/w300" + data.poster_path} alt='img'/>
 					</div>
 					<div className="col-md-8">
-						<h1>{data.title} <span>({year})</span></h1>
+						<h1>{data.title} <span>({data.year})</span></h1>
 						<StarRatingComponent
 								name={data.title}
 								starCount={5}
@@ -57,9 +53,8 @@ class MovieDetail extends Component {
 				</div>
 				<div className="content-detail-bottom">
 				<VideoItem
-					title={data.title + " official trailer"} />
+					title={data.title + " " + data.year + " official trailer"} />
 				</div>
-
 			</div>
 		)
 	}

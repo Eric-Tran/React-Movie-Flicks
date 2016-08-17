@@ -5,7 +5,9 @@ import MovieListItem from './movie_list_item';
 
 class MovieList extends Component {
 	componentWillMount() {
-		this.props.fetchPopularMovies();
+		if (!this.props.movies) {
+			this.props.fetchPopularMovies();
+		}
 	}
 
 	static contextTypes = {
@@ -22,22 +24,33 @@ class MovieList extends Component {
 	showMovieDetail(id) {
 		this.context.router.push('/'+`${id}`);
 	}
+	showTvDetail(id) {
+		this.context.router.push('/tv/'+`${id}`);
+	}
 	renderMovieListItems() {
 		if (this.props.movies) {
 		return this.props.movies.map((data) => {
-			return (
-				<MovieListItem
-				onClick={this.showMovieDetail.bind(this, data.id)}
-				key={data.id}
-				data={data} />
+			if (data.release_date !== undefined && data.release_date !== null) {
+				return (
+					<MovieListItem
+					onClick={this.showMovieDetail.bind(this, data.id)}
+					key={data.id}
+					data={data} />
 				)
+			} else {
+				return (
+					<MovieListItem
+					onClick={this.showTvDetail.bind(this, data.id)}
+					key={data.id}
+					data={data} />
+				)
+			}
+
 			})
 		}
 	}
 
-
 	render() {
-		console.log('data on render', this.props.movies);
 		if(!this.props.movies) {
 			return (
 				<div className="content-list">
@@ -57,8 +70,7 @@ class MovieList extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('mapstateprops', state.movies.data);
-	return { movies: state.movies.data };
+	return { movies: state.movies.data }
 }
 
 export default connect (mapStateToProps, actions)(MovieList);

@@ -49,16 +49,16 @@ export default class Header extends Component {
 								</ul>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link nav-tv" to="/">TV Shows</Link>
+								<Link className="nav-link nav-tv" to="/" onClick={this.popularTv.bind(this)}>TV Shows</Link>
 								<ul className="tv-links">
 									<li className="nav-item">
-										<Link className="nav-link" to="/">Popular</Link>
+										<Link className="nav-link" to="/" onClick={this.popularTv.bind(this)}>Popular</Link>
 									</li>
 									<li className="nav-item">
-										<Link className="nav-link" to="/">Top Rated</Link>
+										<Link className="nav-link" to="/" onClick={this.topTv.bind(this)}>Top Rated</Link>
 									</li>
 									<li className="nav-item">
-										<Link className="nav-link" to="/">On TV</Link>
+										<Link className="nav-link" to="/" onClick={this.playingTv.bind(this)}>On TV</Link>
 									</li>
 								</ul>
 							</li>

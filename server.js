@@ -61,7 +61,7 @@ app.route("/api/tv/top").get(function(req, res) {
 	})
 })
 app.route("/api/tv/playing").get(function(req, res) {
-	var url = `${MOVIEAPI_ROOT_URL}/tv/now_playing?api_key=${MOVIE_API_KEY}`
+	var url = `${MOVIEAPI_ROOT_URL}/tv/on_the_air?api_key=${MOVIE_API_KEY}`
 	request(url, function(err, response) {
 		if (err) {
 			console.log('error making movie api request');
@@ -77,7 +77,21 @@ app.route("/api/detail/:id").get(function(req, res) {
 		if (err) {
 			console.log('error making movie api request');
 		} else {
-			res.send(response.body);
+			var result = JSON.parse(response.body);
+			result.year = result.release_date.slice(0,4);
+			res.send(result);
+		}
+	})
+})
+app.route("/api/tv/detail/:id").get(function(req, res) {
+	var url = `${MOVIEAPI_ROOT_URL}/tv/${req.params.id}?api_key=${MOVIE_API_KEY}`
+	request(url, function(err, response) {
+		if (err) {
+			console.log('error making movie api request');
+		} else {
+			var result = JSON.parse(response.body);
+			result.year = result.first_air_date.slice(0,4);
+			res.send(result);
 		}
 	})
 })

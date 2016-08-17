@@ -8,6 +8,7 @@ import App from './components/app';
 import reducers from './reducers';
 import MovieList from './components/movie_list';
 import MovieDetail from './components/movie_detail';
+import TvDetail from './components/tv_detail';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 //store contains the redux state
@@ -19,6 +20,7 @@ ReactDOM.render(
   			<Route path="/" component={App}>
   			<IndexRoute component={MovieList} />
   				<Route path="/:id" component={MovieDetail} />
+  				<Route path="/tv/:id" component={TvDetail} />
   			</Route>
   		</Router>
   </Provider>
